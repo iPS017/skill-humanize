@@ -54,9 +54,10 @@ Dès la rédaction, pas seulement en correction. Si tu écris un texte ou du cod
 
 ### Code
 
-- **Pas de commentaires qui paraphrasent le code.** Supprime `// Import React`, `// Fonction pour gérer le clic`, `# Boucle sur les éléments`. Garde uniquement : licences, directives d'outils (`eslint-disable`, `@ts-expect-error`, `prettier-ignore`, `noqa`), docs d'API publique si le projet en a, et le rare « pourquoi » qu'on ne peut pas deviner (contournement d'un bug de navigateur, contrainte métier).
+- **Aucun commentaire dans le code.** Ni `// Import React`, ni `{/* Hero Section */}`, ni `// Fonction pour gérer le clic`, ni explication ligne par ligne. Les seuls qui restent : licences, directives d'outils (`eslint-disable`, `@ts-expect-error`, `prettier-ignore`, `noqa`), et la doc d'API publique si le projet en écrit déjà. Si un passage semble avoir besoin d'une explication, renomme ou découpe le code. Quand le plugin est installé, un hook relance le scanner après chaque fichier écrit et te renvoie ce qu'il reste à corriger.
 - **Des noms précis.** Pas de `data`, `temp`, `result`, `item2`, `handleClick2`, `myComponent`. Une fonction commence par un verbe (`fetchProjects`), un booléen par `is`/`has`/`should`.
 - **HTML sémantique.** `header`, `nav`, `main`, `section` avec un titre, `article`, `footer`, `button` pour une action, `a` pour une navigation, `ul`/`li` pour une liste. Pas de `div` cliquable, pas de chaînes `wrapper > container > inner`.
+- **Chaque `div` qui reste a un nom de rôle.** `project-list`, `pricing-table`, `contact-form__row`, pas `wrapper`, `container`, `main-wrapper`, `content-container`, `inner`, `box`, `section-1`, `div-content`. Si tu ne trouves pas de nom de rôle, la `div` est probablement inutile : supprime-la ou remplace-la par une balise sémantique.
 - **Classes nommées selon le rôle**, pas l'apparence : `project-card__title`, pas `big-blue-text`. Suis la méthode du projet (BEM, CSS Modules, Tailwind).
 - **Fichiers bien nommés** selon la convention du projet. Jamais `final`, `new`, `old`, `copy`, `v2`, `test2`, `utils2`, `misc`.
 - **Pas de traces de génération** : `console.log("✅ Success!")`, bloc « Example usage » en fin de fichier, `// TODO: implement`, `try/catch` autour de tout, messages d'erreur vagues, README rempli d'emojis.

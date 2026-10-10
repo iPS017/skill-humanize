@@ -25,7 +25,7 @@ Si le projet a une règle, elle gagne. Les règles ci-dessous servent quand il n
 
 ## 2. Commentaires
 
-Par défaut, pas de commentaire. Le code doit se lire grâce aux noms et à la structure.
+Aucun commentaire, sauf les exceptions ci-dessous. Le code se lit grâce aux noms et à la structure.
 
 À supprimer :
 - les commentaires qui répètent la ligne (`// Set loading to true`, `# Increment counter`) ;
@@ -38,10 +38,9 @@ Par défaut, pas de commentaire. Le code doit se lire grâce aux noms et à la s
 À garder :
 - licences et en-têtes légaux ;
 - directives d'outils : `eslint-disable-next-line`, `@ts-expect-error`, `prettier-ignore`, `biome-ignore`, `noqa`, `type: ignore`, `istanbul ignore`, `webpackChunkName` ;
-- la doc d'une API publique (JSDoc, docstrings) si le projet en écrit ailleurs ;
-- un « pourquoi » qu'on ne devine pas en lisant : contournement d'un bug Safari, contrainte métier, lien vers une issue.
+- la doc d'une API publique (JSDoc, docstrings) si le projet en écrit ailleurs.
 
-Un commentaire gardé est court, au présent, sans ponctuation décorative : `// Safari ignore scroll-padding sur html, voir #142`.
+Un « pourquoi » qu'on ne devine pas (contournement d'un bug Safari, contrainte métier) va dans le message de commit ou dans l'issue, pas dans le fichier. Seule exception : l'utilisateur ou le projet demande explicitement des commentaires.
 
 ## 3. Nommage des identifiants
 
@@ -93,7 +92,8 @@ Utiliser l'élément qui correspond au sens :
 
 ## 6. CSS et classes
 
-- Classes nommées selon le rôle : `project-card`, `project-card__title`, `project-card--featured`. Pas `big-title`, `red-text`, `box1`, `div-wrapper`, `container-inner-2`.
+- Classes nommées selon le rôle : `project-card`, `project-card__title`, `project-card--featured`. Pas `big-title`, `red-text`, `box1`, `div-wrapper`, `container-inner-2`, `main-wrapper`, `content-container`, `section-1`, `hero-container`, `inner`.
+- Une `div` qui n'a pas de nom de rôle évident n'a probablement pas de raison d'exister : la supprimer, ou la remplacer par la balise sémantique qui correspond.
 - Avec Tailwind, extraire un composant plutôt qu'empiler trente classes copiées partout.
 - Variables CSS pour les couleurs, espacements et durées (`--color-accent`, `--space-4`, `--ease-out`). Pas de valeur magique répétée.
 - Pas de `!important` sauf pour surcharger un style tiers.

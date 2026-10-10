@@ -99,8 +99,12 @@ SEMANTIC_TAG = re.compile(
 )
 CLASS_ATTR = re.compile(r"\bclass(?:Name)?\s*=\s*[\"'{`]([^\"'`}]*)")
 BAD_CLASS = re.compile(
-    r"^(?:(div|box|block|item|section|container|wrapper)\d+|container-wrapper|inner-wrapper|"
-    r"wrapper-inner|text-wrapper|(big|small|red|blue|green|bold)-(text|title|box|button))$"
+    r"^(?:(div|box|block|item|section|container|wrapper|card|row|col|part)[-_]?\d+"
+    r"|div[-_]\w+|(main|content|page|inner|outer|flex|grid|section|text|image|img|card|hero|header|footer|"
+    r"top|bottom|left|right|custom|my|new|general|common)[-_](wrapper|container|inner|outer|div|box|holder|area)"
+    r"|(wrapper|container)[-_](inner|outer|main|content|div|box|wrapper|container)"
+    r"|(big|small|red|blue|green|bold|white|black|purple)[-_](text|title|box|button|bg|section))$",
+    re.IGNORECASE,
 )
 BAD_ALT = re.compile(r"\balt\s*=\s*[\"'](image|img|photo|picture|icon|logo|placeholder)[\"']", re.I)
 BAD_FILENAME = re.compile(
@@ -272,7 +276,7 @@ def classify_comment(body):
         return ("info", "JSDoc : à garder seulement si le projet documente son API")
     if re.search(r"\b(TODO|FIXME|XXX)\b", body):
         return ("warn", "TODO laissé dans le code")
-    return ("warn", "Commentaire : à supprimer s'il paraphrase le code")
+    return ("warn", "Commentaire à supprimer")
 
 
 def line_col(text, index):
