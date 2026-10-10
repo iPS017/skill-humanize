@@ -24,13 +24,13 @@ humanize/
 Pour tous tes projets :
 
 ```bash
-git clone https://github.com/iPS017/humanize.git ~/.claude/skills/humanize
+git clone https://github.com/iPS017/skill-humanize.git ~/.claude/skills/humanize
 ```
 
 Sous Windows (PowerShell) :
 
 ```powershell
-git clone https://github.com/iPS017/humanize.git "$env:USERPROFILE\.claude\skills\humanize"
+git clone https://github.com/iPS017/skill-humanize.git "$env:USERPROFILE\.claude\skills\humanize"
 ```
 
 Pour un seul projet, clone dans `.claude/skills/humanize` à la racine du repo.
