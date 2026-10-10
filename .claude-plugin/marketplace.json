@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skill-humanize",
-  "description": "Skill Claude qui retire les marqueurs d'écriture IA du texte et du code.",
+  "description": "Skills Claude qui retirent les marqueurs d'écriture IA du texte, du code et des interfaces.",
   "owner": {
     "name": "iPS017",
     "url": "https://github.com/iPS017"
@@ -10,7 +10,7 @@
     {
       "name": "humanize",
       "source": "./",
-      "description": "Retire les marqueurs d'écriture IA du texte et du code : tirets cadratins, emojis décoratifs, formules toutes faites, commentaires qui paraphrasent le code, noms génériques.",
+      "description": "Retire les marqueurs d'écriture IA : tirets cadratins et formules toutes faites dans le texte, commentaires et noms génériques dans le code, néons, dégradés et textes inutiles dans les interfaces. Review du rendu inspirée des Human Interface Guidelines d'Apple, et hook qui vérifie chaque fichier écrit.",
       "category": "productivity"
     }
   ]
