@@ -7,7 +7,10 @@ Claude l'utilise tout seul quand il écrit un texte ou du code à livrer, ou qua
 ## Contenu
 
 ```
-humanize/
+.claude-plugin/
+├── marketplace.json      déclare le marketplace pour Claude Code
+└── plugin.json
+skills/humanize/
 ├── SKILL.md              règles principales, chargées quand le skill se déclenche
 ├── references/
 │   ├── prose-fr.md       listes et exemples pour le français
@@ -19,25 +22,27 @@ humanize/
 
 ## Installation
 
-### Claude Code
+### Claude Code (marketplace)
 
-Pour tous tes projets :
+```
+/plugin marketplace add iPS017/skill-humanize
+/plugin install humanize@skill-humanize
+```
+
+Dans l'extension VS Code, ajoute `iPS017/skill-humanize` dans l'onglet Marketplaces de Manage Plugins, puis installe le plugin `humanize`.
+
+### Claude Code (copie manuelle)
 
 ```bash
-git clone https://github.com/iPS017/skill-humanize.git ~/.claude/skills/humanize
+git clone https://github.com/iPS017/skill-humanize.git
+cp -r skill-humanize/skills/humanize ~/.claude/skills/
 ```
 
-Sous Windows (PowerShell) :
-
-```powershell
-git clone https://github.com/iPS017/skill-humanize.git "$env:USERPROFILE\.claude\skills\humanize"
-```
-
-Pour un seul projet, clone dans `.claude/skills/humanize` à la racine du repo.
+Pour un seul projet, copie `skills/humanize` dans `.claude/skills/` à la racine du repo.
 
 ### Claude.ai et l'app Claude
 
-Compresse le dossier `humanize` en `.zip` (le dossier doit être à la racine de l'archive), puis importe-le dans la section Skills des réglages.
+Compresse le dossier `skills/humanize` en `.zip` (le dossier doit être à la racine de l'archive), puis importe-le dans la section Skills des réglages.
 
 ## Utilisation
 
@@ -46,10 +51,10 @@ Rien à faire en temps normal. Pour forcer le skill : « passe ce texte au skill
 Le scanner peut aussi tourner seul :
 
 ```bash
-python scripts/scan.py src/ contenu/          # liste les problèmes
-python scripts/scan.py --fix src/             # corrige les cas sans ambiguïté
-python scripts/scan.py --strip-comments src/  # supprime les commentaires, sauf licences et directives d'outils
-echo "Mon texte" | python scripts/scan.py - --lang fr
+python skills/humanize/scripts/scan.py src/ contenu/          # liste les problèmes
+python skills/humanize/scripts/scan.py --fix src/             # corrige les cas sans ambiguïté
+python skills/humanize/scripts/scan.py --strip-comments src/  # supprime les commentaires, sauf licences et directives d'outils
+echo "Mon texte" | python skills/humanize/scripts/scan.py - --lang fr
 ```
 
 `--fix` retire les caractères invisibles, remplace `…` et les guillemets courbes dans le code, et enlève l'espace avant la ponctuation en anglais. Les tirets cadratins et les tournures ne sont jamais corrigés automatiquement, parce que la bonne réécriture dépend de la phrase.

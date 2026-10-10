@@ -1,0 +1,11 @@
+{
+  "name": "humanize",
+  "description": "Retire les marqueurs d'écriture IA du texte et du code.",
+  "version": "1.0.0",
+  "author": {
+    "name": "iPS017"
+  },
+  "homepage": "https://github.com/iPS017/skill-humanize",
+  "repository": "https://github.com/iPS017/skill-humanize",
+  "keywords": ["skill", "writing", "code-style", "french"]
+}
