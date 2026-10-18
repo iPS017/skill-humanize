@@ -32,7 +32,8 @@ Pour le texte de l'interface et la propreté du code, le skill `humanize` s'appl
 1. **Regarde le rendu, pas seulement le code.** Si tu as un navigateur (outils DevTools, Playwright, capture d'écran), ouvre la page en 1440 px, 768 px et 375 px de large, en thème clair et sombre si les deux existent. Si l'utilisateur fournit une capture, travaille dessus. Sans rendu disponible, lis le CSS et le markup et dis que la review est faite sur le code seul.
 2. **Lis les références** :
    - `references/ai-tells.md` : catalogue des effets « IA » avec la correction de chacun ;
-   - `references/apple.md` : espacements, typographie, boutons, couleurs, matériaux, animations, raccourcis clavier.
+   - `references/apple.md` : espacements, typographie, boutons, couleurs, matériaux, animations, raccourcis clavier ;
+   - `references/audit-checklist.md` : checklist de 60 points pour un audit complet d'application (signature graphique, états vides et d'erreur, cas limites, accessibilité, performance des effets).
 3. **Repère les conventions du projet** : design tokens, variables CSS, config Tailwind, librairie de composants. Les corrections passent par ces tokens. Si le projet n'en a pas, propose une petite échelle (espacements, rayons, couleurs) au lieu de corriger valeur par valeur.
 4. **Lance le scanner** si tu as un terminal :
    ```bash
